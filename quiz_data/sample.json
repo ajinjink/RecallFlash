@@ -1,0 +1,27 @@
+[
+  {
+    "category": "Python 기초",
+    "question": "파이썬에서 리스트의 마지막 요소를 접근하는 인덱스는?",
+    "answer": "-1"
+  },
+  {
+    "category": "Python 기초",
+    "question": "파이썬에서 빈 딕셔너리를 만드는 두 가지 방법은?",
+    "answer": "{}, dict()"
+  },
+  {
+    "category": "자료구조",
+    "question": "스택(Stack)의 동작 원칙은?",
+    "answer": "LIFO (Last In First Out)"
+  },
+  {
+    "category": "자료구조",
+    "question": "큐(Queue)의 동작 원칙은?",
+    "answer": "FIFO (First In First Out)"
+  },
+  {
+    "category": "네트워크",
+    "question": "HTTP의 기본 포트 번호는?",
+    "answer": "80"
+  }
+]
