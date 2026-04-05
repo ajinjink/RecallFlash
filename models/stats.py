@@ -39,6 +39,15 @@ class StatsManager:
             self._data[question] = {"category": category, "count": 1}
         self._save()
 
+    def undo_wrong(self, question: str) -> None:
+        """Decrement wrong count; remove entry if it reaches zero."""
+        if question not in self._data:
+            return
+        self._data[question]["count"] -= 1
+        if self._data[question]["count"] <= 0:
+            del self._data[question]
+        self._save()
+
     def get_all(self) -> dict[str, dict]:
         return dict(self._data)
 

@@ -159,6 +159,14 @@ def render_quiz(use_ai: bool) -> None:
         else:
             st.error("❌ 오답입니다.")
             st.info(f"정답: {st.session_state.correct_answer_display}")
+            if st.button("✅ 정답으로 처리", key="override_correct"):
+                # Remove from wrong list
+                if item in st.session_state.wrong_items:
+                    st.session_state.wrong_items.remove(item)
+                # Undo stats recording
+                stats.undo_wrong(item.question)
+                st.session_state.last_correct = True
+                st.rerun()
 
         with st.form("next_form", clear_on_submit=True):
             st.text_input(
