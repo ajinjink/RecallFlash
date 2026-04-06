@@ -139,7 +139,7 @@ def render_quiz(use_ai: bool) -> None:
             st.session_state.last_correct = is_correct
             if not is_correct:
                 st.session_state.wrong_items.append(item)
-                stats.record_wrong(item.question, item.category)
+                stats.record_wrong(item.question, item.category, item.answer)
             st.session_state.correct_answer_display = item.answer
             st.session_state.user_answer_display = user_answer.strip()
             st.rerun()

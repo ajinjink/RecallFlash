@@ -31,12 +31,14 @@ class StatsManager:
         with open(self.path, "w", encoding="utf-8") as f:
             json.dump(self._data, f, ensure_ascii=False, indent=2)
 
-    def record_wrong(self, question: str, category: str) -> None:
+    def record_wrong(self, question: str, category: str, answer: str = "") -> None:
         if question in self._data:
             self._data[question]["count"] += 1
             self._data[question]["category"] = category
+            if answer:
+                self._data[question]["answer"] = answer
         else:
-            self._data[question] = {"category": category, "count": 1}
+            self._data[question] = {"category": category, "count": 1, "answer": answer}
         self._save()
 
     def undo_wrong(self, question: str) -> None:
